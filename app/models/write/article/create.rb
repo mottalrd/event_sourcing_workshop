@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../article'
+
 module Write
   class Article
     CreateSchema = Dry::Validation.Schema do

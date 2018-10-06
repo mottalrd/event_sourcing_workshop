@@ -4,8 +4,12 @@ require 'rails_helper'
 
 RSpec.describe 'Articles', type: :request do
   describe 'new' do
-    it 'shows an article form' do
+    def do_request
       get '/articles/new'
+    end
+
+    it 'shows an article form' do
+      do_request
 
       expect(response.body).to include('Title')
       expect(response.body).to include('Text')
@@ -53,6 +57,22 @@ RSpec.describe 'Articles', type: :request do
 
         expect(response.body).to include('Title must be filled')
       end
+    end
+  end
+
+  describe 'show' do
+    def do_request
+      get "/articles/#{Event.last.entity_id}"
+    end
+
+    before do
+      create(:article_created_event)
+    end
+
+    it 'shows the article' do
+      do_request
+
+      expect(response.body).to include('My title')
     end
   end
 end

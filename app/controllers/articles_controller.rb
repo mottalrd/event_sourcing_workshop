@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = 'Not yet'
+    @article = Write::Article.find(params[:id])
   end
 
   private
