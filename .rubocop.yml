@@ -1,0 +1,25 @@
+require: rubocop-rspec
+AllCops:
+  Exclude:
+    - Brewfile
+    - db/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - bin/**/*
+    - Gemfile
+    - Rakefile
+  DisplayCopNames: true
+  StyleGuideCopsOnly: false
+  TargetRubyVersion: 2.5
+
+Documentation:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - Guardfile
+
+Metrics/LineLength:
+  Max: 80
+  IgnoredPatterns: ['#.*']
+
