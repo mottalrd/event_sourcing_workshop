@@ -23,3 +23,9 @@ Metrics/LineLength:
   Max: 80
   IgnoredPatterns: ['#.*']
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+RSpec/MultipleExpectations:
+  Enabled: false
