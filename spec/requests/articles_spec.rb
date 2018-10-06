@@ -75,4 +75,22 @@ RSpec.describe 'Articles', type: :request do
       expect(response.body).to include('My title')
     end
   end
+
+  describe 'index' do
+    def do_request
+      get '/articles'
+    end
+
+    before do
+      create(:article_created_event)
+      create(:article_created_event)
+      create(:article_created_event)
+    end
+
+    it 'shows all the articles' do
+      do_request
+
+      expect(response.body).to have_css('.article', count: 3)
+    end
+  end
 end

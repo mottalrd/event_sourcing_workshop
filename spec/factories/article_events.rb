@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :article_created_event, class: Event do
+  factory :article_created_event, parent: :base_event do
     event_type { 'created' }
     entity_type { 'article' }
     entity_id { SecureRandom.uuid }

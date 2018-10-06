@@ -8,7 +8,7 @@ module Write
     end
 
     def publish_event(params)
-      Event.create(params)
+      Event.create_and_broadcast(params)
     end
 
     def validate
