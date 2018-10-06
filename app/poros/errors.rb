@@ -23,7 +23,7 @@ class Errors
     messages[:default]&.first
   end
 
-  def add_to(active_record:)
+  def add_to(active_record)
     messages.each do |key, messages_array|
       messages_array.each do |message|
         active_record.errors.add(key, :invalid, message: message)
